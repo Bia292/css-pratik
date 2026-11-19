@@ -126,8 +126,9 @@ Inline (a, span, img, strong): sadece içeriği kadar yer kaplar, yan yana dizil
 /*sonradan eklendi. Su an main alanim 600px'de. Daralma goruldu.*/
 
 main {
-  width: 600px;
-  margin: 0 auto;
+ /* width: 600px; px kullandigimiz icin boyut sayfa boyutuyla degismez. Bunu degistirmek icin yontemlerden biri width yerine max-width vermek.*/
+ max-width: 600px; 
+ margin: 0 auto;
   /* 
       border-box sayesinde width artık border dahil tüm kutuyu ölçüyor. İçerik alanı = 544px
       margin: 0 auto; dedigimiz icinde kontrolde oldugu yatayda ortalanmis oldu  
@@ -138,7 +139,9 @@ main {
 }
 
 img {
-  width: 150px;
+  /*width: 150px;*/
+  max-width: 100%; /*kutusundan asla tasmayacak.*/
+  height: auto; /*oranini koru, basiklasma.*/
 }
 
 /*✨ Hayat kurtaran ayar: box-sizing
@@ -588,3 +591,16 @@ sayfanın tamamı değil:
   overflow-x: auto;   / sadece yatayda, gerekirse kaydırma çubuğu /
 }
 */
+
+@media (max-width: 600px){
+  .main-icerikler ul{
+    flex-direction: column; /*menuyu row'dan column yap.*/
+    align-items: center;
+  }
+  h1, h2{
+    font-size: 1.5rem;
+  }
+  .main{
+    padding: 10px;
+  }
+}
