@@ -1,0 +1,458 @@
+/* Claude ile CSS Tekrar Desleri */
+
+
+
+/* Konu 1: Temeller */
+
+ body{
+   /* background-color: #4d1b1b;  hex kodu ile renk atadim.*/
+    background-image: linear-gradient(to right, #4d1b2b, rgb(202, 113, 5));
+    
+    /*💡 Küçük ipucu
+     Gradient’li body’de sayfanın altında çizgili, tekrar eden bir arka plan görürsen sebep sayfanın kısa olması. Çözümü:*/
+    min-height: 100vh;   /* en az ekranın tamamı kadar uzun ol */
+     /*vh = ekran yüksekliğinin yüzdesi. 100vh = tüm ekran. */
+
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+ h1{
+    letter-spacing: 3px;
+    background-color: rgba(179, 115, 20, 0.3);
+    padding: 3px;
+    border: #4d1b1b solid 1px;
+ }
+ h1, h2{
+    font-family: "MedievalSharp", "Cinzel";
+    text-align: center;
+    color: #311212;
+    font-size: 40px;
+ }
+ h2 + p {
+    font-style: italic;
+ }
+ .main-icerikler a{
+    text-decoration: none;
+    color: rgb(219, 156, 80);
+    transition: color 0.5s; /*eger transition'i sadece hover'a yazarsam gecis sadece hoverde olur ve cikis direk olacagindan a altina yazip iki durumda da smooth gecis sagladik.*/
+ }
+ .main-icerikler a:visited{
+    color:rgb(221, 64, 64);
+ }
+
+ .main-icerikler a:hover{
+    color: rgb(177, 219, 80);
+    background-color: rgba(255, 255, 255, 0.15);
+ }
+
+ #main-p{
+    overflow: auto; /*p kisa oldugu icin overflow devreye girme ihtiyaci duymuyor.*/
+    height: 60px;
+    color: darkorange;
+ }
+
+ .bolumler li{
+    margin: 2px;
+    font-size: 20px;
+    list-style-type: square;
+ }
+
+.bolumler li:nth-child(even){
+    background-color: bisque;
+    font-style: oblique;
+}
+.bolumler li:nth-child(odd){
+    background-color: rgb(158, 142, 122);
+    font-style: italic;
+}
+.bolumler li:first-child{
+    font-weight: bold;
+}
+
+
+
+/* Konu 2: Kutu Modeli 📦 
+
+.kutu {
+  width: 300px;
+  height: 150px;
+  padding: 20px;                   /* içerik ile çerçeve arası *
+  border: 3px solid darkred;       /* kalınlık - tür - renk *
+  border-radius: 15px;             /* köşeleri yuvarlar *
+  margin: 30px;                    /* kutu ile diğer öğeler arası *
+}
+
+--
+
+Kısayol yazımı;
+
+margin ve padding 4 yöne ayrı ayrı değer alabilir. Saat yönünde düşün: üst → sağ → alt → sol
+
+margin: 10px;               /* 4 yön aynı *
+margin: 10px 20px;          /* üst-alt 10, sağ-sol 20 *
+margin: 10px 20px 30px 40px; /* üst, sağ, alt, sol *
+margin: 0 auto;             /* kutuyu yatayda ortalar ✨ *
+
+
+Border türleri
+
+solid (düz), dashed (kesik), dotted (noktalı), double (çift), groove, ridge...
+
+Block ve inline
+Block (div, p, h1, ul): satırın tamamını kaplar, alt alta dizilir, width/height alır.
+Inline (a, span, img, strong): sadece içeriği kadar yer kaplar, yan yana dizilir, width/height çoğu zaman işe yaramaz.
+
+İstersen değiştirebilirsin: display: block; ya da display: inline;
+
+  */
+
+  *{
+    box-sizing: border-box;
+   } /*sonradan eklendi. Su an main alanim 600px'de. Daralma goruldu.*/
+
+  main{
+    width: 600px;
+    margin: 0 auto;
+    /* 
+      border-box sayesinde width artık border dahil tüm kutuyu ölçüyor. İçerik alanı = 544px
+      margin: 0 auto; dedigimiz icinde kontrolde oldugu yatayda ortalanmis oldu  
+    */
+    padding: 25px;
+    border: dashed 3px darkgrey;
+    border-radius: 30px;
+    } 
+    img{
+        width: 150px;
+    }
+
+/*✨ Hayat kurtaran ayar: box-sizing
+
+“600px dedim, neden 656 (3px + 25px + 600px + 25px + 3px yani border + padding + width + padding + border) oldu?” 
+
+Bu durum herkesi sinir eder. Çözümü:
+     {
+       box-sizing: border-box;
+     }
+  
+Bu ayarla "width: 600px" dediğinde, padding ve border 600'ün içinden yenir. Kutu tam olarak 600px olur, içerik alanı biraz küçülür. Hesap yapmak çok kolaylaşır.
+*/
+
+
+
+/*Konu 3: Arka Plan ve Resimler 🖼️*/
+
+header{
+    position: relative;
+    background-image: url(Gorseller/bg-pic-1.jpg); /*Resmi arka plan yapar. Yol, CSS dosyasına göre yazılır!*/
+    background-size: cover; /*Resmi kutuyu tamamen kaplayacak kadar büyütür; taşan kısımlar kırpılır*/
+    /* background-size: contain;   Resmin tamamı görünsün diye küçültür; boşluk kalabilir  */
+    background-position: center; /*Kırpma olursa resmin ortası görünsün*/
+    background-repeat: no-repeat; /*Resim küçükse yan yana tekrarlanmasın*/
+    height: 250px; 
+ }
+ 
+
+/*⚠️ Önemli tuzaklar
+  Arka plan resmi kutuya boyut vermez. <header>’ın içinde sadece bir başlık varsa kutu küçük kalır, resim de ince bir şerit gibi görünür. Bu yüzden height veriyoruz.
+  <img> ile background-image farkı: <img> içeriğin bir parçasıdır (logo, fotoğraf). background-image ise süs içindir; üstüne yazı yazabilirsin.
+*/
+
+
+
+/*Konu 4: Yazı ve Font ✍️*/
+
+p {
+  /*font-family: Arial, sans-serif;    yazı tipi (ilki yoksa ikincisi) */
+  font-size: 18px;                  /* boyut */
+  /* font-weight: bold;                 kalınlık: normal, bold, 100–900 */
+  /* font-style: italic;                eğik */
+  line-height: 1.6;                 /* satır arası (okunabilirlik için çok önemli!) */
+  /* text-align: center;               left, right, center, justify */
+  /* text-transform: uppercase;         uppercase, lowercase, capitalize */
+  /* letter-spacing: 2px;               harf arası */
+  word-spacing: 5px;                /* kelime arası */
+  /* text-decoration: underline;        none, underline, line-through */
+}
+
+
+
+/*Konu 5: Seçiciler 🎯*/
+
+/*Seçici	Anlamı	                                   Örnek
+*	       Her şey	                                  * { margin: 0; }
+p	       Tüm paragraflar	
+p.ozel	   Sadece ozel class’ı olan paragraflar	
+h1, h2	   h1 ve h2 (virgül = ikisi de)	
+nav a	   nav’ın içindeki tüm a’lar (torunlar dahil)	
+ul > li	   ul’nin doğrudan çocuğu olan li’ler	
+h2 + p	   h2'den hemen sonra gelen ilk p	
+h2 ~ p	   h2'den sonra gelen tüm p kardeşler
+*/
+
+/*nav a ile nav > a farkı (.bolumler li:nth-child(3) ile .bolumler > li:nth-child(3) farki)
+
+Bu en çok karıştırılan kısım:
+<ul class="bolumler">
+  <li>Birinci Bölüm</li>
+  <li>İkinci Bölüm
+    <ul>
+      <li>2.1</li>
+      <li>2.2</li>
+      <li>2.3</li>   <!-- 🎯 -->
+    </ul>
+  </li>
+  <li>Üçüncü Bölüm</li>   <!-- 🎯 -->
+</ul>
+
+.bolumler li:nth-child(3) → “Üçüncü Bölüm” ve “2.3” (torunlar dahil, çünkü 2.3 de kendi ebeveyninin 3. çocuğu)
+.bolumler > li:nth-child(3)→ sadece “Üçüncü Bölüm” (doğrudan çocuk)
+*/ 
+
+/*Sıra seçicileri*
+
+ /*li:first-child   { }   /* ilk li *
+ li:last-child      { }   /* son li *
+ li:nth-child(2)    { }   /* 2. li *
+ li:nth-child(odd)  { }   /* tek sıradakiler: 1, 3, 5... *
+ li:nth-child(even) { }   /* çift sıradakiler: 2, 4, 6... *
+ li:only-child      { }   /* tek çocuksa *
+*/
+
+
+
+/*Konu 6: Linkler, Listeler ve İkonlar 🔗*/
+
+/*Link durumları
+
+ Link, Visited, Hover, Active
+ 
+
+ a:link    { color: rgb(219, 156, 80); }  /* hiç tıklanmamış /
+ a:visited { color: tan; }                 /* daha önce tıklanmış /
+ a:hover   { color: white; }               /* fare üstündeyken /
+ a:active  { color: red; }                 /* tıklandığı an /
+*/
+
+/*Yumuşak geçiş: transition ✨
+
+Hover’da renk anında değişir. Yumuşak olsun istersen:
+a {
+  transition: color 0.3s;   /* rengi 0.3 saniyede değiştir /
+  }
+*/
+
+/*Liste işaretleri
+  ul { list-style-type: square; }   /* disc, circle, square, none / (none menulerde cok kullanilir.)
+  ol { list-style-type: upper-roman; } /* I, II, III... /
+*/
+
+
+
+/*Konu 7: Tablolar 📊*/
+
+/* Etiket	                 Anlamı
+    <table>	                  Tablonun kendisi
+    <thead> / <tbody>	      Başlık kısmı / gövde kısmı
+    <tr>	                  table row, satır
+    <th>	                  table header, başlık hücresi (otomatik kalın ve ortalı)
+    <td>	                  table data, normal hücre
+*/
+
+.karakterler{
+    width: 100%;
+    border-collapse: collapse; /*Her box'un kendi cizgisi vardir. border-collapse verdigimizde iki yan yana cizgi birlesir ve tek bir cizgi gorunumu verir*/
+    margin-top: 50px;
+    border: 3px solid #311212;
+}
+.karakterler th{
+    border: 1px solid bisque;
+    font-size: 20px;
+    font-family: "MedievalSharp", "Cinzel";
+    color: antiquewhite;
+    background-color: #4d1b2b;
+    text-align: center;
+}
+ .karakterler td{
+    font-size: 18px;
+    font-family: "Cinzel" , "MedievalSharp";
+    border: 1px solid #4d1b1b;
+    padding: 8px 12px;
+    text-align: left;
+}
+.karakterler tbody tr:nth-child(odd){
+    background-color: rgb(170, 148, 115);
+    transition: 0.8s;
+}
+.karakterler tbody tr:nth-child(odd):hover{
+    background-color:rgb(145, 60, 60);
+}
+ .karakterler tbody tr td i{
+    float: right; /* öğeyi kutunun sağına yaslar, yazı solda kalır */
+ } 
+.karakterler tbody tr:nth-child(even){
+    background-color: rgb(121, 99, 66);
+    transition: 0.8s;
+}
+.karakterler tbody tr:nth-child(even):hover{
+    background-color:rgb(206, 111, 111);
+}
+
+
+
+/*Konu 8: Katmanlar — position, z-index, overflow 🧱*/
+
+/*position türleri
+
+   Değer	      Ne yapar
+    static	       Varsayılan. Normal akışta durur, top/left işe yaramaz
+    relative	   Normal yerinde durur ama top/left ile kendi yerine göre kaydırılabilir
+    absolute	   Akıştan çıkar (diğerleri onu yok sayar), en yakın relative ebeveynine göre konumlanır
+    fixed	       Ekrana yapışır, sayfa kayınca bile yerinde durur
+    sticky	       Normal akışta durur, kaydırınca belirli bir noktada yapışır
+
+*/
+/* Önce temel fikir: “normal akış”
+
+    HTML öğelerini sırada bekleyen insanlar gibi düşün. 
+    Her öğe kendi yerinde durur ve bir sonraki, onun hemen arkasına dizilir. 
+    Buna normal akış denir. 
+
+    position: static (varsayılan) budur: herkes sırada, kimse kıpırdamaz. top/left yazsan bile işe yaramaz.
+
+*/
+/* relative: “Yerimi tutuyorum ama biraz kenara kaydım”
+
+Sıradaki biri yerinden bir adım kenara çıkıyor ama sıradaki yeri hâlâ onun. 
+Arkadakiler öne kaymaz; boşluk olduğu gibi kalır.
+
+*/
+/* absolute: “Sıradan çıktım, havada süzülüyorum”
+
+Bu sefer kişi sıradan tamamen çıkıyor. 
+Arkadakiler hemen boşluğu kapatıyor, sanki o hiç yokmuş gibi. 
+Kutu artık havada ve bir yere yapışması lazım.
+
+absolute öğe, yukarı doğru ebeveynlerine bakar ve position’ı static olmayan ilk ebeveyni bulur. 
+Ona göre konumlanır. Bulamazsa tüm sayfaya göre konumlanır.
+
+*/
+/* Neden ikisi hep birlikte kullanılır?
+
+Ebeveyne relative verip hiç top/left yazmazsan, ebeveyn yerinden kıpırdamaz. 
+Tek yaptığı şey: “Çocuklarım, ölçülerinizi benden alın” demek. 
+Yani relative burada kaydırmak için değil, çapa olmak için kullanılıyor.
+
+*/
+
+/*z-index: kim kimin üstünde?
+
+Büyük sayı üstte durur:
+
+.arka  { position: absolute; z-index: 1; }
+.on    { position: absolute; z-index: 10; }
+.altta { position: absolute; z-index: -1; }  / yazının bile altına, arkaplana gorsel eklemek icin falan. /
+
+*/
+/*⚠️ z-index sadece position’ı static olmayan öğelerde çalışır.*/
+
+/*overflow: içerik taşınca ne olsun?
+
+.kutu {
+  height: 100px;
+  overflow: visible;  / taşan kısım görünür (varsayılan) /
+  overflow: hidden;   /*taşan kısım kesilir /
+  overflow: scroll;   / her zaman kaydırma çubuğu /
+  overflow: auto;     / sadece gerekirse kaydırma çubuğu ⭐ /
+}
+
+*/
+
+header span{
+    color: aliceblue;
+    position: absolute;
+    top: 0px; /*aslinda -5px ile Beta yazisini tam sifirlamistim ust ile ama 0px daha dogru geldi.*/
+    right: 0px;
+ }
+
+
+
+/*Konu 9, Bölüm 1: Flexbox 📏*/
+
+/*Temel fikir: kap ve eşyalar
+
+Flexbox’ta iki rol var:
+
+  Kap (container): display: flex verdiğin ebeveyn
+  Eşyalar (items): onun doğrudan çocukları
+*/
+/*Ebeveyne tek bir satır yazınca, çocuklar alt alta değil yan yana dizilir:
+    ul {
+      display: flex;
+    }
+  Bu kadar! Gerisi, eşyaları kabın içinde nasıl dizeceğini söyleyen ayarlar.
+*/
+/*Dört önemli ayar (hepsi ebeveyne yazılır):
+    .kap {
+    display: flex;
+    flex-direction: row;          / row = yan yana (varsayılan), column = alt alta /
+    justify-content: center;      / ana yönde hizalama /
+    align-items: center;          / diğer yönde hizalama /
+    gap: 20px;                    / eşyalar arası boşluk /
+}
+*/
+/*En kafa karıştıran kısım şu ikili:
+
+justify-content → eşyaların dizildiği yön boyunca (row ise yatay) (main eksen)
+align-items → onun dik açısındaki yön (row ise dikey)             (not-so-main eksen)
+
+flex-direction: column yaparsan ikisi yer değiştirir.
+*/
+
+.main-icerikler{
+    display: flex;
+    flex-direction: column; /*span ve ul artik alt alta duruyor.*/
+    align-items: center;
+    gap: 15px;
+    font-family: "MedievalSharp", "Cinzel";
+    font-weight: bold;
+    background-color: rgba(116, 73, 10, 0.7); /* (rgba) kullandim. Yani red-green-blue renklerine bir de seffaflik ekledim ki o da (0.7) kismi oluyor.*/
+    padding: 10px 20px;
+    position: sticky; top: 0;  
+ }
+.main-icerikler span{
+    font-size: 45px;
+}
+.main-icerikler ul{
+    list-style-type: none; 
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* ul tum genisligi kaplasin diye*/
+    gap: 16px; 
+    margin: 0;
+    padding: 0;
+}
+.main-icerikler a{
+    display: block; /*linkimi bir kutu yaptim.*/
+    padding: 15px 10px; /*bu kisim yaziya, yani linkin alanini genisletiyor. Bu sekilde mouse'u direk yazinin ustune getirmene gerek kalmiyor. Gorunmez bir buton olusuyor.*/
+    border: 2px solid rgb(221, 64, 64); /*buna da hover color vermek istedim ama bu birazcik advance gibi duruyor. Ileride ogrenecegim.*/
+    border-radius: 40px;
+}
+
+/*display: block neden önemli? 
+
+     a inline bir öğe, yani sadece yazının üstü tıklanabilir. 
+     Block yapıp padding verince tüm kutu tıklanabilir hale gelir ve hover arka planı düzgün görünür. 
+     Profesyonel menülerin “dolgun” hissi buradan gelir.
+*/
+
+
+/*Konu 9.2: Dikey Menü (Yan Panel) 📑*/
+
+/*
+ Wiki sitelerini düşün: solda alt alta bölüm listesi, sağda içerik. Bunu yapacağız. 
+ Burada iki yeni şey öğreneceksin: <aside> etiketi ve eşyaya yazılan ilk flex özelliği olan flex: 1.
+*/
+
+
+/*Konu 9.3: Dropdown Menü 🎯*/
+
+/*Konu 11.1: Git ve GitHub, Kurulum 🐙*/

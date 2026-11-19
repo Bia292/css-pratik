@@ -1,0 +1,85 @@
+/*🧱 Adım 1: Yatay menü (bildiğin kısım)*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(122, 17, 17);
+    border-bottom: 2px solid rgb(211, 181, 145);
+}
+
+.menu a{
+    display: block;
+    padding: 14px 20px;
+    color: bisque;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/*🎈 Adım 2: Alt menüyü havaya kaldırmak*/
+.acilir {
+    position: relative;
+    /*capa: alt menu olculerini benden alsin diyor kisaca*/
+}
+
+.alt-menu {
+    display: none;
+    /*basta gizli olmasi icin.*/
+    position: absolute;
+    /*akistan cik, menuyu itme dedik. Diger turlu hala menu icinde ve alt kisimdan itiyordu.*/
+    top: 100%;
+    /*ebeveyn'in tam altinda basla*/
+    left: 0;
+    /*ebeveyn'in sol kenariyla hizalan*/
+    min-width: 200px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #311212;
+    z-index: 10;
+    /*sayfadaki icerigin ustunde dursun*/
+    border-radius: 0 15px 0;
+}
+.alt-menu li{
+    border-bottom-left-radius: 15px;
+    border-bottom: 3px solid rgb(211 181 145);
+}
+
+/*Eger sonuncuda border-bottom istemiyorsam.
+.alt-menu li:last-child { border-bottom: none; }   / sonra sonuncusunu iptal et /
+
+ya da
+
+.alt-menu li:not(:last-child) { ... }              / baştan "sonuncusu hariç" de /
+*/
+
+/*.alt-menu li:first-child{
+    border-radius: 0 15px 0 0;
+}
+.alt-menu li:last-child{
+    border-radius: 0 0 0 15px;
+}*/ /*ilk boyle denedim ama sonra durup dedim ki... bunu tek sirada yazabilirim bence sonra gidip border-bottom-left-radius'u buldum.*/
+
+.acilir:hover .alt-menu {
+    display: block;
+    /*li'nin ustune gelince goster*/
+}
+
+/*🧠 Neden hover’ı li’ye veriyoruz, linke değil?
+
+Hover’ı linke verseydin: fare linkten çıkar çıkmaz alt menü kapanır, hiçbir şeye tıklayamazsın. 😤
+Hover’ı li’ye veriyoruz: alt menü li’nin içinde olduğu için, fare alt menüdeyken li hâlâ hover durumunda. Bugün öğrendiğin kural: çocuğun üstündeyken ebeveyn de hover’dadır!
+*/
+
