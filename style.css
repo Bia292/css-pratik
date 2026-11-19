@@ -139,7 +139,7 @@ main {
 }
 
 img {
-  /*width: 150px;*/
+  width: 150px;
   max-width: 100%; /*kutusundan asla tasmayacak.*/
   height: auto; /*oranini koru, basiklasma.*/
 }
@@ -600,7 +600,11 @@ sayfanın tamamı değil:
   h1, h2{
     font-size: 1.5rem;
   }
-  .main{
+  main{
     padding: 10px;
   }
+}
+
+.tablo-kutusu{
+  overflow-x: auto;
 }
