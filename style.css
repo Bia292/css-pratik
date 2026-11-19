@@ -13,10 +13,6 @@ body {
   min-height: 100vh;
   /* en az ekranın tamamı kadar uzun ol */
   /*vh = ekran yüksekliğinin yüzdesi. 100vh = tüm ekran. */
-  min-width: 100vw;
-  /*en az ekranin tamami kadar genis ol*/
-  /*vw = ekran genisliginin yuzdesi. 100vw = tum ekran. */
-
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
