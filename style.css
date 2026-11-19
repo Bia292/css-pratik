@@ -4,68 +4,82 @@
 
 /* Konu 1: Temeller */
 
- body{
-   /* background-color: #4d1b1b;  hex kodu ile renk atadim.*/
-    background-image: linear-gradient(to right, #4d1b2b, rgb(202, 113, 5));
-    
-    /*💡 Küçük ipucu
+body {
+  /* background-color: #4d1b1b;  hex kodu ile renk atadim.*/
+  background-image: linear-gradient(to right, #4d1b2b, rgb(202, 113, 5));
+
+  /*💡 Küçük ipucu
      Gradient’li body’de sayfanın altında çizgili, tekrar eden bir arka plan görürsen sebep sayfanın kısa olması. Çözümü:*/
-    min-height: 100vh;   /* en az ekranın tamamı kadar uzun ol */
-     /*vh = ekran yüksekliğinin yüzdesi. 100vh = tüm ekran. */
+  min-height: 100vh;
+  /* en az ekranın tamamı kadar uzun ol */
+  /*vh = ekran yüksekliğinin yüzdesi. 100vh = tüm ekran. */
+  min-width: 100vw;
+  /*en az ekranin tamami kadar genis ol*/
+  /*vw = ekran genisliginin yuzdesi. 100vw = tum ekran. */
 
-     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
- h1{
-    letter-spacing: 3px;
-    background-color: rgba(179, 115, 20, 0.3);
-    padding: 3px;
-    border: #4d1b1b solid 1px;
- }
- h1, h2{
-    font-family: "MedievalSharp", "Cinzel";
-    text-align: center;
-    color: #311212;
-    font-size: 40px;
- }
- h2 + p {
-    font-style: italic;
- }
- .main-icerikler a{
-    text-decoration: none;
-    color: rgb(219, 156, 80);
-    transition: color 0.5s; /*eger transition'i sadece hover'a yazarsam gecis sadece hoverde olur ve cikis direk olacagindan a altina yazip iki durumda da smooth gecis sagladik.*/
- }
- .main-icerikler a:visited{
-    color:rgb(221, 64, 64);
- }
-
- .main-icerikler a:hover{
-    color: rgb(177, 219, 80);
-    background-color: rgba(255, 255, 255, 0.15);
- }
-
- #main-p{
-    overflow: auto; /*p kisa oldugu icin overflow devreye girme ihtiyaci duymuyor.*/
-    height: 60px;
-    color: darkorange;
- }
-
- .bolumler li{
-    margin: 2px;
-    font-size: 20px;
-    list-style-type: square;
- }
-
-.bolumler li:nth-child(even){
-    background-color: bisque;
-    font-style: oblique;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.bolumler li:nth-child(odd){
-    background-color: rgb(158, 142, 122);
-    font-style: italic;
+
+h1 {
+  letter-spacing: 3px;
+  background-color: rgba(179, 115, 20, 0.3);
+  padding: 3px;
+  border: #4d1b1b solid 1px;
 }
-.bolumler li:first-child{
-    font-weight: bold;
+
+h1,
+h2 {
+  font-family: "MedievalSharp", "Cinzel";
+  text-align: center;
+  color: #311212;
+  font-size: 40px;
+}
+
+h2+p {
+  font-style: italic;
+}
+
+.main-icerikler a {
+  text-decoration: none;
+  color: rgb(219, 156, 80);
+  transition: color 0.5s;
+  /*eger transition'i sadece hover'a yazarsam gecis sadece hoverde olur ve cikis direk olacagindan a altina yazip iki durumda da smooth gecis sagladik.*/
+}
+
+.main-icerikler a:visited {
+  color: rgb(221, 64, 64);
+}
+
+.main-icerikler a:hover {
+  color: rgb(177, 219, 80);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#main-p {
+  overflow: auto;
+  /*p kisa oldugu icin overflow devreye girme ihtiyaci duymuyor.*/
+  height: 60px;
+  color: darkorange;
+}
+
+.bolumler li {
+  margin: 2px;
+  font-size: 20px;
+  list-style-type: square;
+}
+
+.bolumler li:nth-child(even) {
+  background-color: bisque;
+  font-style: oblique;
+}
+
+.bolumler li:nth-child(odd) {
+  background-color: rgb(158, 142, 122);
+  font-style: italic;
+}
+
+.bolumler li:first-child {
+  font-weight: bold;
 }
 
 
@@ -105,24 +119,27 @@ Inline (a, span, img, strong): sadece içeriği kadar yer kaplar, yan yana dizil
 
   */
 
-  *{
-    box-sizing: border-box;
-   } /*sonradan eklendi. Su an main alanim 600px'de. Daralma goruldu.*/
+* {
+  box-sizing: border-box;
+}
 
-  main{
-    width: 600px;
-    margin: 0 auto;
-    /* 
+/*sonradan eklendi. Su an main alanim 600px'de. Daralma goruldu.*/
+
+main {
+  width: 600px;
+  margin: 0 auto;
+  /* 
       border-box sayesinde width artık border dahil tüm kutuyu ölçüyor. İçerik alanı = 544px
       margin: 0 auto; dedigimiz icinde kontrolde oldugu yatayda ortalanmis oldu  
     */
-    padding: 25px;
-    border: dashed 3px darkgrey;
-    border-radius: 30px;
-    } 
-    img{
-        width: 150px;
-    }
+  padding: 25px;
+  border: dashed 3px darkgrey;
+  border-radius: 30px;
+}
+
+img {
+  width: 150px;
+}
 
 /*✨ Hayat kurtaran ayar: box-sizing
 
@@ -140,16 +157,20 @@ Bu ayarla "width: 600px" dediğinde, padding ve border 600'ün içinden yenir. K
 
 /*Konu 3: Arka Plan ve Resimler 🖼️*/
 
-header{
-    position: relative;
-    background-image: url(Gorseller/bg-pic-1.jpg); /*Resmi arka plan yapar. Yol, CSS dosyasına göre yazılır!*/
-    background-size: cover; /*Resmi kutuyu tamamen kaplayacak kadar büyütür; taşan kısımlar kırpılır*/
-    /* background-size: contain;   Resmin tamamı görünsün diye küçültür; boşluk kalabilir  */
-    background-position: center; /*Kırpma olursa resmin ortası görünsün*/
-    background-repeat: no-repeat; /*Resim küçükse yan yana tekrarlanmasın*/
-    height: 250px; 
- }
- 
+header {
+  position: relative;
+  background-image: url(Gorseller/bg-pic-1.jpg);
+  /*Resmi arka plan yapar. Yol, CSS dosyasına göre yazılır!*/
+  background-size: cover;
+  /*Resmi kutuyu tamamen kaplayacak kadar büyütür; taşan kısımlar kırpılır*/
+  /* background-size: contain;   Resmin tamamı görünsün diye küçültür; boşluk kalabilir  */
+  background-position: center;
+  /*Kırpma olursa resmin ortası görünsün*/
+  background-repeat: no-repeat;
+  /*Resim küçükse yan yana tekrarlanmasın*/
+  height: 250px;
+}
+
 
 /*⚠️ Önemli tuzaklar
   Arka plan resmi kutuya boyut vermez. <header>’ın içinde sadece bir başlık varsa kutu küçük kalır, resim de ince bir şerit gibi görünür. Bu yüzden height veriyoruz.
@@ -162,14 +183,17 @@ header{
 
 p {
   /*font-family: Arial, sans-serif;    yazı tipi (ilki yoksa ikincisi) */
-  font-size: 18px;                  /* boyut */
+  font-size: 18px;
+  /* boyut */
   /* font-weight: bold;                 kalınlık: normal, bold, 100–900 */
   /* font-style: italic;                eğik */
-  line-height: 1.6;                 /* satır arası (okunabilirlik için çok önemli!) */
+  line-height: 1.6;
+  /* satır arası (okunabilirlik için çok önemli!) */
   /* text-align: center;               left, right, center, justify */
   /* text-transform: uppercase;         uppercase, lowercase, capitalize */
   /* letter-spacing: 2px;               harf arası */
-  word-spacing: 5px;                /* kelime arası */
+  word-spacing: 5px;
+  /* kelime arası */
   /* text-decoration: underline;        none, underline, line-through */
 }
 
@@ -205,7 +229,7 @@ Bu en çok karıştırılan kısım:
 
 .bolumler li:nth-child(3) → “Üçüncü Bölüm” ve “2.3” (torunlar dahil, çünkü 2.3 de kendi ebeveyninin 3. çocuğu)
 .bolumler > li:nth-child(3)→ sadece “Üçüncü Bölüm” (doğrudan çocuk)
-*/ 
+*/
 
 /*Sıra seçicileri*
 
@@ -257,43 +281,52 @@ a {
     <td>	                  table data, normal hücre
 */
 
-.karakterler{
-    width: 100%;
-    border-collapse: collapse; /*Her box'un kendi cizgisi vardir. border-collapse verdigimizde iki yan yana cizgi birlesir ve tek bir cizgi gorunumu verir*/
-    margin-top: 50px;
-    border: 3px solid #311212;
+.karakterler {
+  width: 100%;
+  border-collapse: collapse;
+  /*Her box'un kendi cizgisi vardir. border-collapse verdigimizde iki yan yana cizgi birlesir ve tek bir cizgi gorunumu verir*/
+  margin-top: 50px;
+  border: 3px solid #311212;
 }
-.karakterler th{
-    border: 1px solid bisque;
-    font-size: 20px;
-    font-family: "MedievalSharp", "Cinzel";
-    color: antiquewhite;
-    background-color: #4d1b2b;
-    text-align: center;
+
+.karakterler th {
+  border: 1px solid bisque;
+  font-size: 20px;
+  font-family: "MedievalSharp", "Cinzel";
+  color: antiquewhite;
+  background-color: #4d1b2b;
+  text-align: center;
 }
- .karakterler td{
-    font-size: 18px;
-    font-family: "Cinzel" , "MedievalSharp";
-    border: 1px solid #4d1b1b;
-    padding: 8px 12px;
-    text-align: left;
+
+.karakterler td {
+  font-size: 18px;
+  font-family: "Cinzel", "MedievalSharp";
+  border: 1px solid #4d1b1b;
+  padding: 8px 12px;
+  text-align: left;
 }
-.karakterler tbody tr:nth-child(odd){
-    background-color: rgb(170, 148, 115);
-    transition: 0.8s;
+
+.karakterler tbody tr:nth-child(odd) {
+  background-color: rgb(170, 148, 115);
+  transition: 0.8s;
 }
-.karakterler tbody tr:nth-child(odd):hover{
-    background-color:rgb(145, 60, 60);
+
+.karakterler tbody tr:nth-child(odd):hover {
+  background-color: rgb(145, 60, 60);
 }
- .karakterler tbody tr td i{
-    float: right; /* öğeyi kutunun sağına yaslar, yazı solda kalır */
- } 
-.karakterler tbody tr:nth-child(even){
-    background-color: rgb(121, 99, 66);
-    transition: 0.8s;
+
+.karakterler tbody tr td i {
+  float: right;
+  /* öğeyi kutunun sağına yaslar, yazı solda kalır */
 }
-.karakterler tbody tr:nth-child(even):hover{
-    background-color:rgb(206, 111, 111);
+
+.karakterler tbody tr:nth-child(even) {
+  background-color: rgb(121, 99, 66);
+  transition: 0.8s;
+}
+
+.karakterler tbody tr:nth-child(even):hover {
+  background-color: rgb(206, 111, 111);
 }
 
 
@@ -366,12 +399,13 @@ Büyük sayı üstte durur:
 
 */
 
-header span{
-    color: aliceblue;
-    position: absolute;
-    top: 0px; /*aslinda -5px ile Beta yazisini tam sifirlamistim ust ile ama 0px daha dogru geldi.*/
-    right: 0px;
- }
+header span {
+  color: aliceblue;
+  position: absolute;
+  top: 0px;
+  /*aslinda -5px ile Beta yazisini tam sifirlamistim ust ile ama 0px daha dogru geldi.*/
+  right: 0px;
+}
 
 
 
@@ -407,34 +441,44 @@ align-items → onun dik açısındaki yön (row ise dikey)             (not-so-
 flex-direction: column yaparsan ikisi yer değiştirir.
 */
 
-.main-icerikler{
-    display: flex;
-    flex-direction: column; /*span ve ul artik alt alta duruyor.*/
-    align-items: center;
-    gap: 15px;
-    font-family: "MedievalSharp", "Cinzel";
-    font-weight: bold;
-    background-color: rgba(116, 73, 10, 0.7); /* (rgba) kullandim. Yani red-green-blue renklerine bir de seffaflik ekledim ki o da (0.7) kismi oluyor.*/
-    padding: 10px 20px;
-    position: sticky; top: 0;  
- }
-.main-icerikler span{
-    font-size: 45px;
+.main-icerikler {
+  display: flex;
+  flex-direction: column;
+  /*span ve ul artik alt alta duruyor.*/
+  align-items: center;
+  gap: 15px;
+  font-family: "MedievalSharp", "Cinzel";
+  font-weight: bold;
+  background-color: rgba(116, 73, 10, 0.7);
+  /* (rgba) kullandim. Yani red-green-blue renklerine bir de seffaflik ekledim ki o da (0.7) kismi oluyor.*/
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
 }
-.main-icerikler ul{
-    list-style-type: none; 
-    display: flex;
-    justify-content: space-between;
-    width: 100%; /* ul tum genisligi kaplasin diye*/
-    gap: 16px; 
-    margin: 0;
-    padding: 0;
+
+.main-icerikler span {
+  font-size: 45px;
 }
-.main-icerikler a{
-    display: block; /*linkimi bir kutu yaptim.*/
-    padding: 15px 10px; /*bu kisim yaziya, yani linkin alanini genisletiyor. Bu sekilde mouse'u direk yazinin ustune getirmene gerek kalmiyor. Gorunmez bir buton olusuyor.*/
-    border: 2px solid rgb(221, 64, 64); /*buna da hover color vermek istedim ama bu birazcik advance gibi duruyor. Ileride ogrenecegim.*/
-    border-radius: 40px;
+
+.main-icerikler ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* ul tum genisligi kaplasin diye*/
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-icerikler a {
+  display: block;
+  /*linkimi bir kutu yaptim.*/
+  padding: 15px 10px;
+  /*bu kisim yaziya, yani linkin alanini genisletiyor. Bu sekilde mouse'u direk yazinin ustune getirmene gerek kalmiyor. Gorunmez bir buton olusuyor.*/
+  border: 2px solid rgb(221, 64, 64);
+  /*buna da hover color vermek istedim ama bu birazcik advance gibi duruyor. Ileride ogrenecegim.*/
+  border-radius: 40px;
 }
 
 /*display: block neden önemli? 
@@ -455,4 +499,92 @@ flex-direction: column yaparsan ikisi yer değiştirir.
 
 /*Konu 9.3: Dropdown Menü 🎯*/
 
+
+
 /*Konu 11.1: Git ve GitHub, Kurulum 🐙*/
+
+
+
+/*Konu 12: Responsive Tasarım 📱*/
+
+/*Responsive” = sitenin ekran boyutuna uyum sağlaması. 
+ Bugün sitelerin trafiğinin yarısından fazlası telefonlardan geliyor; 
+ işverenlerin portfolyonu ilk kez telefonda açma ihtimali de yüksek.
+*/
+/*
+main {
+  width: 600px;   / telefon ekranı ~390px, 600px sığmaz! /
+}
+*/
+/*✅ Çözüm 1: width yerine / max-width /
+main {
+  max-width: 600px;   / "en fazla 600px ol" /
+  margin: 0 auto;
+}
+
+
+  Resimler için de aynı mantık. Bu iki satırı neredeyse her projede göreceksin:
+img {
+  max-width: 100%;   / kutusundan asla taşma /
+  height: auto;      / oranını koru, basıklaşma /
+}
+*/
+/*📏 Birimler
+   Birim	          Neye göre	                                            Ne zaman
+    px	             Sabit	                                               Kenarlıklar, küçük detaylar
+    %	               Ebeveynin genişliği	                                 Kutu genişlikleri
+    vw / vh	         Ekranın genişliği / yüksekliği (100vw = tüm ekran)	   Tam ekran alanlar (min-height: 100vh gibi)
+    rem	             Sayfanın temel yazı boyutu (genelde 16px)	           Yazı boyutları, boşluklar ⭐
+*/
+/*rem neden onemli?
+1rem = 16px, 1.5rem = 24px, 2rem = 32px
+
+Kullanıcı tarayıcısında yazıları büyütürse (görme sorunu olanlar sık yapar), 
+rem ile yazılmış her şey orantılı olarak büyür; 
+px ise sabit kalır. 
+Erişilebilirlik için çok değerli.
+*/
+/*✅ Çözüm 2: Media Query, “ekran şundan küçükse...”
+Bazen sadece küçültmek yetmez, farklı bir düzen gerekir. 
+Mesela telefonda menü yan yana değil, alt alta olsun:
+
+/ Normal (geniş ekran) kuralların burada /
+.main-icerikler ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+/ Ekran 600px veya daha darsa: /
+@media (max-width: 600px) {
+  .main-icerikler ul {
+    flex-direction: column;   / menü alt alta /
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.75rem;       / başlık biraz küçülsün /
+  }
+}
+
+   Okuması kolay: @media (max-width: 600px) { ... } = “ekran genişliği en fazla 600px ise, 
+   süslü parantezin içindeki kuralları da uygula.”
+*/
+/*⚠️ Media query’ler dosyanın en altına yazılır. Neden? 
+
+Konu 1'deki kural: eşit güçteki seçicilerde son yazılan kazanır. 
+Media query’deki h1 kuralının normal h1 kuralını ezmesi için ondan sonra gelmesi lazım.
+*/
+/*💡 Bonus: geniş tablolar
+
+Tablolar küçülmeyi sevmez. 
+Konu 8'deki overflow’u hatırla: tabloyu bir kutuya koyup sadece o kutunun yana kaymasını sağlayabilirsin, 
+sayfanın tamamı değil:
+
+<div class="tablo-kutusu">
+  <table class="karakterler">...</table>
+</div>
+
+.tablo-kutusu {
+  overflow-x: auto;   / sadece yatayda, gerekirse kaydırma çubuğu /
+}
+*/
