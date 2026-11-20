@@ -122,9 +122,9 @@ Inline (a, span, img, strong): sadece içeriği kadar yer kaplar, yan yana dizil
 /*sonradan eklendi. Su an main alanim 600px'de. Daralma goruldu.*/
 
 main {
- /* width: 600px; px kullandigimiz icin boyut sayfa boyutuyla degismez. Bunu degistirmek icin yontemlerden biri width yerine max-width vermek.*/
- max-width: 600px; 
- margin: 0 auto;
+  /* width: 600px; px kullandigimiz icin boyut sayfa boyutuyla degismez. Bunu degistirmek icin yontemlerden biri width yerine max-width vermek.*/
+  max-width: 600px;
+  margin: 0 auto;
   /* 
       border-box sayesinde width artık border dahil tüm kutuyu ölçüyor. İçerik alanı = 544px
       margin: 0 auto; dedigimiz icinde kontrolde oldugu yatayda ortalanmis oldu  
@@ -136,8 +136,10 @@ main {
 
 img {
   width: 150px;
-  max-width: 100%; /*kutusundan asla tasmayacak.*/
-  height: auto; /*oranini koru, basiklasma.*/
+  max-width: 100%;
+  /*kutusundan asla tasmayacak.*/
+  height: auto;
+  /*oranini koru, basiklasma.*/
 }
 
 /*✨ Hayat kurtaran ayar: box-sizing
@@ -498,6 +500,85 @@ flex-direction: column yaparsan ikisi yer değiştirir.
 
 /*Konu 9.3: Dropdown Menü 🎯*/
 
+/*R1: Flexbox Derinlemesine 📏*/
+/*🧭 Temel kavram: iki eksen
+
+Flexbox’ı gerçekten anlamanın anahtarı bu:
+
+Ana eksen (main axis): Eşyaların dizildiği yön. flex-direction belirler.
+Çapraz eksen (cross axis): Ana eksene dik olan yön.
+
+flex-direction	               Ana eksen	        Çapraz eksen
+row (varsayılan)	              → soldan sağa	     ↓ yukarıdan aşağı
+row-reverse	                    ← sağdan sola	     ↓
+column	                        ↓ yukarıdan aşağı	 →
+column-reverse	                ↑ aşağıdan yukarı	 →
+
+Ve kural basit:
+
+justify- ile başlayanlar → ana eksen
+align- ile başlayanlar → çapraz eksen
+*/
+/*📦 Kap özellikleri: tam liste*/
+/*1. flex-direction: 
+  
+  Yukarıdaki tablo. -reverse değerleri sırayı ters çevirir; ama HTML’deki sıra değişmez, sadece görünüş. 
+  (Ekran okuyucular ve klavye hâlâ HTML sırasını izler; o yüzden önemli içerik sırası için reverse kullanma.)
+*/
+/*2. flex-wrap: ⭐ Dün eksik kalan en önemli şey
+
+  flex-wrap: nowrap;        / varsayılan: tek satıra sıkıştır, gerekirse taşır /
+  flex-wrap: wrap;          / sığmayanlar alt satıra geçsin /
+  flex-wrap: wrap-reverse;  / sığmayanlar üst satıra geçsin /
+
+     Varsayılan nowrap olduğu için flex eşyaları sığmasa bile tek satırda kalmaya çalışır; 
+  önce küçülür, küçülemezse taşar. 
+     Telefonda menünün sıkışmasının asıl sebebi buydu. wrap ile çoğu zaman media query’ye gerek kalmaz.
+*/
+/*3. flex-flow: İkisinin kısayolu
+
+   flex-flow: row wrap;   / = flex-direction: row; flex-wrap: wrap; /
+*/
+/*4. justify-content: Ana eksende boşluk dağıtımı
+
+   Değer	         Ne yapar
+    flex-start	    Başa topla (varsayılan)
+    flex-end	      Sona topla
+    center	        Ortaya topla
+    space-between	  İlk ve son kenarlara yapışık, aradaki boşluklar eşit
+    space-around	  Her eşyanın iki yanına eşit boşluk (kenarlarda yarım kalır)
+    space-evenly	  Kenarlar dahil tüm boşluklar eşit
+*/
+/*5. align-items: Çapraz eksende her satırın içinde hizalama
+
+   Değer	                  Ne yapar
+    stretch	(varsayilan)     Eşyalar çapraz eksende kabı doldurur (varsayılan!)
+    flex-start / flex-end	   Başa / sona
+    center	                 Ortaya
+    baseline	               Eşyaların yazı tabanları hizalanır. Farklı boyutta yazılar olan menülerde çok güzel durur
+
+     stretch’in varsayılan olduğunu bilmek önemli: yan yana kartların hepsinin aynı boyda görünmesi bu sayede oluyor. 
+     Bir eşyaya height verirsen stretch o eşyada çalışmaz.
+*/
+/*6. align-content: ⭐ En çok karıştırılan
+
+   align-items her satırın içindeki eşyaları hizalar. 
+   align-content ise satırların kendisini kabın içinde dağıtır. 
+   Değerleri justify-content ile aynı (flex-start, center, space-between...) artı stretch.
+
+    ⚠️ Sadece birden fazla satır varken işe yarar, yani flex-wrap: wrap olmadan hiçbir şey yapmaz! 
+    “align-content yazdım ama çalışmıyor” sorununun %99'u budur.
+*/
+/*7. gap: Eşyalar arası boşluk
+
+   gap: 20px;           / hem satır hem sütun arası /
+   gap: 10px 20px;      / satırlar arası 10, sütunlar arası 20 /
+   row-gap: 10px;
+   column-gap: 20px;
+
+     gap sadece eşyaların arasına boşluk koyar, kenarlara koymaz. Margin ile boşluk vermekten çok daha temiz.
+*/
+
 
 
 /*Konu 11.1: Git ve GitHub, Kurulum 🐙*/
@@ -588,19 +669,23 @@ sayfanın tamamı değil:
 }
 */
 
-@media (max-width: 600px){
-  .main-icerikler ul{
-    flex-direction: column; /*menuyu row'dan column yap.*/
+@media (max-width: 600px) {
+  .main-icerikler ul {
+    flex-direction: column;
+    /*menuyu row'dan column yap.*/
     align-items: center;
   }
-  h1, h2{
+
+  h1,
+  h2 {
     font-size: 1.5rem;
   }
-  main{
+
+  main {
     padding: 10px;
   }
 }
 
-.tablo-kutusu{
+.tablo-kutusu {
   overflow-x: auto;
 }
