@@ -578,7 +578,26 @@ align- ile başlayanlar → çapraz eksen
 
      gap sadece eşyaların arasına boşluk koyar, kenarlara koymaz. Margin ile boşluk vermekten çok daha temiz.
 */
+/*8. order: eşyanın sırası 
 
+   Her eşyanın varsayılan order değeri 0'dır. Küçük sayı öne, büyük sayı arkaya geçer:
+     .kurbaga-sari { order: 2; }    / en sona /
+     .kurbaga-kirmizi { order: -1; } / en başa (eksi değer olabilir!) /
+
+   Değerleri eşit olanlar, HTML'deki sıralarına göre dizilir
+   Sadece görünüşü değiştirir; HTML'deki sıra aynı kalır
+   ⚠️Klavyeyle gezinen ve ekran okuyucu kullanan kişiler hâlâ HTML sırasını izler. 
+   O yüzden order'ı küçük görsel düzenlemeler için kullan; önemli içeriğin sırası değişecekse HTML'i degistir.
+*/
+/*9:align-self: tek bir eşyanın kendi hizası
+
+   align-items kabın tüm eşyalarını hizalar. align-self ise tek bir eşyanın bu kuralı kendisi için ezmesini sağlar:
+     .kap { align-items: flex-start; }        / herkes üstte /
+     .kurbaga-sari { align-self: flex-end; }  / ama bu altta /
+  
+   Değerleri align-items ile aynı: flex-start, flex-end, center, baseline, stretch, 
+   bir de auto (varsayılan: "kabın ne dediyse o").
+*/
 
 
 /*Konu 11.1: Git ve GitHub, Kurulum 🐙*/
