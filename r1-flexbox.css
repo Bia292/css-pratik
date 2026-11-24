@@ -1,0 +1,47 @@
+body {
+    background-image: linear-gradient(to right, rgb(13, 36, 36), rgb(20, 92, 92));
+    /*arkaplan icin fancy bir renk gecisi sectim*/
+    min-height: 100vh;
+    /*ekran boyutu olmasini sagladim*/
+}
+
+.ust-menu {
+    display: flex;
+    background-color: rgb(88, 24, 24);
+    color: burlywood;
+    font-family: 'MedievalSharp', 'Cinzel';
+    border: 3px double rgba(131, 112, 6, 0.712);
+    margin: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    /*.ust-menu span{} altina ekleyecektim ama vazgecip direk ebeveny'e ekledim*/
+}
+/*.ust-menu ul{
+    justify-content: center;  sorun yasiyorum!!!!!!!
+}*/
+
+.ust-menu a {
+    transition: 0.5s;
+    display: block;
+    text-decoration: none;
+    color: bisque;
+    /*devam edilecek....*/
+    padding-left: 4rem;
+}
+.ust-menu a:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgb(252, 141, 62);
+}
+.menu, .menu-dd{
+    list-style-type: none;
+}
+.menu {
+    position: relative;
+}
+.menu-dd{
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    
+}

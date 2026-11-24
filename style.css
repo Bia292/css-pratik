@@ -7,7 +7,6 @@
 body {
   /* background-color: #4d1b1b;  hex kodu ile renk atadim.*/
   background-image: linear-gradient(to right, #4d1b2b, rgb(202, 113, 5));
-
   /*💡 Küçük ipucu
      Gradient’li body’de sayfanın altında çizgili, tekrar eden bir arka plan görürsen sebep sayfanın kısa olması. Çözümü:*/
   min-height: 100vh;

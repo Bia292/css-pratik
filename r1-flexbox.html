@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R1 Flexbox Pratiği</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="r1-flexbox.css">
 </head>
 
@@ -12,10 +17,34 @@
     <!--Alistirma 3: baseline-->
     <nav class="ust-menu">
         <span class="site-adi">Secret of the Kingdom</span>
-        <a href="#">Kingdoms</a>
-        <a href="#">Characters</a>
-        <a href="#">History</a>
-        <a href="#">Map</a>
+        <ul class="menu">
+            <li>
+                <a href="#">Kingdoms</a>
+                <ul class="menu-dd">
+                    <li>Cascadea</li>
+                    <li>Caelora</li>
+                    <li>Kharoth</li>
+                    <li>Vassoria</li>
+                    <li>Beyond the Land</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Characters</a>
+                <ul class="menu-dd">
+                    <li>Bia Cascadea</li>
+                    <li>Lara Cascadea</li>
+                    <li>Kael Caelora</li>
+                    <li>Sophina Kharoth</li>
+                    <li>Teemus Droplord</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">History</a>
+            </li>
+            <li>
+                <a href="#">Map</a>
+            </li>
+        </ul>
     </nav>
     <!--Alistirma 1 ve 2: Kart sirasi-->
     <section class="cards">
